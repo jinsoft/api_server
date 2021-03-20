@@ -1,0 +1,34 @@
+# system configuration
+system:
+  httpPort: 8300
+
+# mysql connect configuration
+mysql:
+  path: '127.0.0.1:3306'
+  config: ''
+  database: 'account'
+  username: 'root'
+  password: 'root'
+  maxIdleConns: 10
+  maxOpenConns: 100
+  logMode: false
+  logZap: ""
+
+# redis configuration
+redis:
+  db: 1
+  addr: '127.0.0.1:6379'
+  password: ''
+
+# zap logger configuration
+zap:
+  level: 'info'
+  format: 'console'
+  prefix: '[AAA]'
+  director: 'logs'
+  linkName: 'latest_log'
+  show-line: true
+  encodeLevel: 'LowercaseColorLevelEncoder'
+  stacktraceKey: 'stacktrace'
+  logInConsole: true
+  filepath: 'storage/logs'
