@@ -35,3 +35,13 @@ go build 的时候会选择性地编译以系统名结尾的文件(linux、darwi
 
 package main
 ```
+
+### [Httplib(beego)](https://beego.me/docs/module/httplib.md)
+
+#### 支持的方法对象
+
+- Get(url string)
+- Post(url string)
+- Put(url string)
+- Delete(url string)
+- Head(url string)
