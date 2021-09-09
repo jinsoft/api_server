@@ -23,12 +23,18 @@ redis:
 # zap logger configuration
 zap:
   level: 'info'
-  format: 'console'
+  format: 'json'
   prefix: '[AAA]'
   director: 'logs'
   linkName: 'latest_log'
   show-line: true
-  encodeLevel: 'LowercaseColorLevelEncoder'
+  encodeLevel: 'LowercaseLevelEncoder'
   stacktraceKey: 'stacktrace'
   logInConsole: true
   filepath: 'storage/logs'
+
+# jwt
+JWT:
+#  secret: ainiok
+#  issuer: api-service
+  expire: 7200

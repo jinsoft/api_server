@@ -1,28 +1,26 @@
 package main
 
 import (
+	"api_server/core"
+	"api_server/global"
+	"api_server/internal/cache"
+	"api_server/internal/models"
+	"api_server/internal/routers"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
-	"user_server/core"
-	"user_server/global"
-	"user_server/internal/cache"
-	"user_server/internal/models"
-	"user_server/internal/routers"
 )
 
 func main() {
 	global.CFG = core.Viper()
 	global.LOG = core.Zap()
 	global.DB = models.NewDBEngine()
-	fmt.Println(global.CONFIG.System.HttpPort)
 	if global.DB != nil {
 		db, _ := global.DB.DB()
 		defer db.Close()
 	}
 	cache.Redis()
-	gin.SetMode("debug")
+	//gin.SetMode("debug")
 	router := routers.NewRouter()
 	s := &http.Server{
 		Addr:           fmt.Sprintf(":%d", global.CONFIG.System.HttpPort),

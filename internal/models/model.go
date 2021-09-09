@@ -1,6 +1,7 @@
 package models
 
 import (
+	"api_server/global"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -8,11 +9,14 @@ import (
 	"log"
 	"os"
 	"time"
-	"user_server/global"
 )
 
 type Model struct {
-	ID uint64 `gorm:"primary_key" json:"id"`
+	ID        uint64    `gorm:"primary_key" json:"id"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+	DeletedAt time.Time `json:"deleted_at"`
+	IsDelete  uint8     `json:"is_delete"`
 }
 
 func NewDBEngine() *gorm.DB {

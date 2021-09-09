@@ -1,6 +1,7 @@
 package core
 
 import (
+	"api_server/global"
 	"fmt"
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap"
@@ -8,7 +9,6 @@ import (
 	"path"
 	"strings"
 	"time"
-	"user_server/global"
 )
 
 var level zapcore.Level
@@ -54,8 +54,8 @@ func getEncoderConfig() (config zapcore.EncoderConfig) {
 		CallerKey:     "caller",
 		StacktraceKey: "stacktrace",
 		LineEnding:    zapcore.DefaultLineEnding,
-		EncodeLevel:   zapcore.LowercaseLevelEncoder,
-		EncodeTime:    CustomTimeEncoder,
+		//EncodeLevel:   zapcore.LowercaseLevelEncoder,
+		EncodeTime: CustomTimeEncoder,
 		//EncodeTime:     zapcore.RFC3339TimeEncoder,
 		EncodeDuration: zapcore.SecondsDurationEncoder,
 		EncodeCaller:   zapcore.FullCallerEncoder,
@@ -102,5 +102,5 @@ func getLevel(level string) (lv zapcore.Level) {
 
 // 自定义日志输出时间格式
 func CustomTimeEncoder(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
-	enc.AppendString(t.Format(global.CONFIG.Zap.Prefix + "2006/01/02 - 15:04:05.000"))
+	enc.AppendString(t.Format(global.CONFIG.Zap.Prefix + "2006/01/02 - 15:04:05"))
 }

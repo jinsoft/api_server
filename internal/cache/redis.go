@@ -1,11 +1,11 @@
 package cache
 
 import (
+	"api_server/global"
 	"context"
 	"github.com/go-redis/redis/v8"
 	"go.uber.org/zap"
 	"time"
-	"user_server/global"
 )
 
 func Redis() {

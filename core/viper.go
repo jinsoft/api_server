@@ -1,9 +1,9 @@
 package core
 
 import (
+	"api_server/global"
 	"fmt"
 	"github.com/spf13/viper"
-	"user_server/global"
 )
 
 func Viper(path ...string) *viper.Viper {

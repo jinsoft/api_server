@@ -1,6 +1,7 @@
 package app
 
 import (
+	"api_server/pkg/errcode"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -20,4 +21,12 @@ func (r *Response) ToResponse(data interface{}) {
 		data = gin.H{}
 	}
 	r.Ctx.JSON(http.StatusOK, data)
+}
+
+func (r *Response) ToErrorResponse(err *errcode.Error) {
+	resp := gin.H{
+		"code": err.Code(),
+		"msg":  err.Msg(),
+	}
+	r.Ctx.JSON(err.StatusCode(), resp)
 }
