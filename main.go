@@ -11,6 +11,20 @@ import (
 	"time"
 )
 
+// @title API_Server
+// @version 1.0
+// @description 没啥好说的
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name jinsoft
+// @contact.url http://www.swagger.io/support
+// @contact.email job@ainiok.com
+
+// @license.name Apache 2.0
+// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
+
+// @host 127.0.0.1:8300
+// @BasePath /
 func main() {
 	global.CFG = core.Viper()
 	global.LOG = core.Zap()

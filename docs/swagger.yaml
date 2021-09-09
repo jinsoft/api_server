@@ -1,0 +1,38 @@
+basePath: /
+host: 127.0.0.1:8300
+info:
+  contact:
+    email: job@ainiok.com
+    name: jinsoft
+    url: http://www.swagger.io/support
+  description: 没啥好说的
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: API_Server
+  version: "1.0"
+paths:
+  /auth:
+    post:
+      consumes:
+      - application/form-data
+      description: 根据app_key和app_secret获取token
+      parameters:
+      - in: query
+        name: appKey
+        required: true
+        type: string
+      - in: query
+        name: appSecret
+        required: true
+        type: string
+      produces:
+      - application/form-data
+      responses:
+        "200":
+          description: ""
+      summary: 获取token
+      tags:
+      - auth
+swagger: "2.0"

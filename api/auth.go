@@ -9,6 +9,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Summary 获取token
+// @Description 根据app_key和app_secret获取token
+// @Tags auth
+// @Accept application/form-data
+// @Produce application/form-data
+// @Param object query service.AuthRequest true "查询参数"
+// @Success 200
+// @Router /auth [post]
 func GetAuth(c *gin.Context) {
 	param := service.AuthRequest{}
 	response := app.NewResponse(c)

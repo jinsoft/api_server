@@ -1,0 +1,56 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "没啥好说的",
+        "title": "API_Server",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "jinsoft",
+            "url": "http://www.swagger.io/support",
+            "email": "job@ainiok.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "127.0.0.1:8300",
+    "basePath": "/",
+    "paths": {
+        "/auth": {
+            "post": {
+                "description": "根据app_key和app_secret获取token",
+                "consumes": [
+                    "application/form-data"
+                ],
+                "produces": [
+                    "application/form-data"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "获取token",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "appKey",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "appSecret",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}
