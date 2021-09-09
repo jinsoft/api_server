@@ -4,11 +4,13 @@
 - viper： https://github.com/spf13/viper
 - zap： https://github.com/uber-go/zap
 - rotatelogs： https://github.com/lestrrat-go/file-rotatelogs
+- jwt  https://github.com/golang-jwt/jwt
+- swaggo/gin-swagger https://github.com/swaggo/gin-swagger
 
 
 ## Redis Example
 
-```go
+```
 ctx := context.Background()
 val, err := global.REDIS.Get(ctx,"name").Result()
 if err != nil {
